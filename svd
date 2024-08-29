@@ -1,0 +1,37 @@
+import numpy as np
+A= np.array([[1,2],[3,4]])
+print(A)
+U,S,VT=np.linalg.svd(A)
+print("left singular matrix")
+print(U)
+print("singular matrix")
+print(S)
+print("right singular matrix")
+print(VT)
+sigma = np.zeros(((A.shape[0],A.shape[1])))
+print(sigma)
+np.fill_diagonal(sigma,S)
+print(sigma)
+B=U.dot(sigma.dot(VT))
+print("reconstructer matrix:\n",B)
+
+
+  OUTPUT
+  ------
+  [[1 2]
+ [3 4]]
+left singular matrix
+[[-0.40455358 -0.9145143 ]
+ [-0.9145143   0.40455358]]
+singular matrix
+[5.4649857  0.36596619]
+right singular matrix
+[[-0.57604844 -0.81741556]
+ [ 0.81741556 -0.57604844]]
+[[0. 0.]
+ [0. 0.]]
+[[5.4649857  0.        ]
+ [0.         0.36596619]]
+reconstructer matrix:
+ [[1. 2.]
+ [3. 4.]]
